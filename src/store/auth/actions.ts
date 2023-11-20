@@ -27,6 +27,12 @@ const actions: ActionTree<AuthState, StateInterface> = {
         }
 
 
+    },
+    async logout( { commit }) {
+
+        commit('dropUser')
+        localStorage.removeItem('token')
+
     }
 }
 

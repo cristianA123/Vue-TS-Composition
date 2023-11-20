@@ -14,7 +14,8 @@ export const useAuth = () => {
         user: computed( () => store.state.auth.user),
 
 
-        login: ( email: string, password: string ) => store.dispatch('auth/login', {email, password})
+        login: ( email: string, password: string ) => store.dispatch('auth/login', {email, password}),
+        logout: () => store.dispatch('auth/logout')
     }
 
 

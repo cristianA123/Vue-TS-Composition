@@ -149,7 +149,6 @@ export default defineComponent({
       try {
         const response = await API.get<EmployedResponse>('/empleados');
         employeeds.value = response.data.data;
-        console.log(employeeds.value);
       } catch (error) {
         console.error('Error fetching employee data:', error);
       }

@@ -26,12 +26,16 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { menuNavigation, MenuNavigation } from '../../configs/navigation';
+import { useAuth } from '../composables/useAuth';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: "SideBar",
   components: {},
   setup() {
+    const router = useRouter()
 
+    const { logout } = useAuth()
     const isSelected = ref(true);
     const activePlace = ref('');
     const options = menuNavigation
@@ -46,8 +50,8 @@ export default defineComponent({
                 activePlace.value = place.path
             },
       logout: () => {
-        console.log("Cerrar sesión");
-        console.log(options)
+        logout()
+        router.push('/auth/login')
       },
     };
   },
